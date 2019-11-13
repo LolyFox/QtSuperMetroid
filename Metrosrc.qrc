@@ -1,0 +1,90 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/BG/Brinstar/Big Room.bmp</file>
+        <file>img/BG/Brinstar/Bulb Corridor.bmp</file>
+        <file>img/BG/Brinstar/Corridor.bmp</file>
+        <file>img/BG/Brinstar/Flashing Plants.bmp</file>
+        <file>img/BG/Brinstar/Giant Sidehopper Room.bmp</file>
+        <file>img/BG/Brinstar/Gloomy Old Brinstar.bmp</file>
+        <file>img/BG/Brinstar/Green Brinstar Shaft.bmp</file>
+        <file>img/BG/Brinstar/Kraid's Lair.bmp</file>
+        <file>img/BG/Brinstar/Kraid's Walls.bmp</file>
+        <file>img/BG/Brinstar/Old Brinstar.bmp</file>
+        <file>img/BG/Brinstar/Radioactive Tower.bmp</file>
+        <file>img/BG/Brinstar/Radioactive Tunnel.bmp</file>
+        <file>img/BG/Brinstar/Red Brinstar Item Room.bmp</file>
+        <file>img/BG/Brinstar/Rocks.bmp</file>
+        <file>img/BG/Brinstar/Tunnel.bmp</file>
+        <file>img/BG/Brinstar/Varia Suit Room.bmp</file>
+        <file>img/BG/Brinstar/Water Room.bmp</file>
+        <file>img/BG/Ceres Space Colony/Ceres Effect Normal.bmp</file>
+        <file>img/BG/Ceres Space Colony/Ceres Effect Self-Destruct.bmp</file>
+        <file>img/BG/Ceres Space Colony/Ceres Hallway Normal.bmp</file>
+        <file>img/BG/Ceres Space Colony/Ceres Hallway Self-Destruct.bmp</file>
+        <file>img/BG/Ceres Space Colony/Ceres Research Room Normal.bmp</file>
+        <file>img/BG/Ceres Space Colony/Ceres Research Room Self-Destruct.bmp</file>
+        <file>img/BG/Crateria/Crateria Interior.bmp</file>
+        <file>img/BG/Crateria/Elevator Room.bmp</file>
+        <file>img/BG/Crateria/Gloomy Crateria Interior.bmp</file>
+        <file>img/BG/Crateria/Gloomy Elevator Room.bmp</file>
+        <file>img/BG/Crateria/Gloomy Old Tourain.bmp</file>
+        <file>img/BG/Crateria/Gloomy Ruins.bmp</file>
+        <file>img/BG/Crateria/Mushroom Room.bmp</file>
+        <file>img/BG/Crateria/Old Tourain Fog.bmp</file>
+        <file>img/BG/Crateria/OldTourain.bmp</file>
+        <file>img/BG/Crateria/Rock Tower.bmp</file>
+        <file>img/BG/Crateria/Room Before Statue Room.bmp</file>
+        <file>img/BG/Crateria/Ruins 2.bmp</file>
+        <file>img/BG/Crateria/Ruins.bmp</file>
+        <file>img/BG/Crateria/Torizo's Room Effect.bmp</file>
+        <file>img/BG/Crateria/Torizo's Room.bmp</file>
+        <file>img/BG/Crateria/Under the Lake.bmp</file>
+        <file>img/BG/Maridia/Average Room.bmp</file>
+        <file>img/BG/Maridia/Botwoon's Room With Holes.bmp</file>
+        <file>img/BG/Maridia/Botwoon's Room without holes.bmp</file>
+        <file>img/BG/Maridia/Dark Vine Room With Less Vines.bmp</file>
+        <file>img/BG/Maridia/Dark Vine Room.bmp</file>
+        <file>img/BG/Maridia/Grass Room.bmp</file>
+        <file>img/BG/Maridia/Plasma Beam Room.bmp</file>
+        <file>img/BG/Maridia/Tube Room.bmp</file>
+        <file>img/BG/Maridia/Tunnel to Brinstar.bmp</file>
+        <file>img/BG/Norfair/Block.bmp</file>
+        <file>img/BG/Norfair/Bottom of Lava Lower Room.bmp</file>
+        <file>img/BG/Norfair/Brick Tower.bmp</file>
+        <file>img/BG/Norfair/Bubbles.bmp</file>
+        <file>img/BG/Norfair/Flaming Molten Walls.bmp</file>
+        <file>img/BG/Norfair/Flaming Walls.bmp</file>
+        <file>img/BG/Norfair/Hall Before Ridley.bmp</file>
+        <file>img/BG/Norfair/Lower Norfair Entry Room.bmp</file>
+        <file>img/BG/Norfair/Missile Caverns.bmp</file>
+        <file>img/BG/Norfair/Molten Walls.bmp</file>
+        <file>img/BG/Norfair/Top of Lava Lower Room.bmp</file>
+        <file>img/BG/Norfair/Tower.bmp</file>
+        <file>img/BG/Norfair/Walls.bmp</file>
+        <file>img/BG/Norfair/Wave Beam Room.bmp</file>
+        <file>img/BG/Stations/Haunted Station.bmp</file>
+        <file>img/BG/Stations/Health Station.bmp</file>
+        <file>img/BG/Stations/Map Station.bmp</file>
+        <file>img/BG/Stations/Missile Station.bmp</file>
+        <file>img/BG/Stations/Save Room.bmp</file>
+        <file>img/BG/Title and Ending/Stars.bmp</file>
+        <file>img/BG/Title and Ending/Title Effect.bmp</file>
+        <file>img/BG/Title and Ending/Zebes about to Explode.bmp</file>
+        <file>img/BG/Title and Ending/Zebes Explosion.bmp</file>
+        <file>img/BG/Title and Ending/Zebes.bmp</file>
+        <file>img/BG/Tourain/Sidehopper Room.bmp</file>
+        <file>img/BG/Wrecked Ship/Entrance.bmp</file>
+        <file>img/BG/Wrecked Ship/Hallway.bmp</file>
+        <file>img/BG/Wrecked Ship/Haunted Entrance.bmp</file>
+        <file>img/BG/Wrecked Ship/Haunted Hallway.bmp</file>
+        <file>img/BG/Wrecked Ship/Haunted Metroid Research Lab.bmp</file>
+        <file>img/BG/Wrecked Ship/Haunted Room.bmp</file>
+        <file>img/BG/Wrecked Ship/Metroid Research Lab.bmp</file>
+        <file>img/BG/Wrecked Ship/Room.bmp</file>
+        <file>img/BG/Note.txt</file>
+        <file>img/HUD2.png</file>
+        <file>img/MetroidPlayer.png</file>
+        <file>img/BackgroundTiles.png</file>
+        <file>Map/Dojo1.map</file>
+    </qresource>
+</RCC>

@@ -1,25 +1,47 @@
-#ifndef ROOM_H
-#define ROOM_H
+/**
+ * @file room.h
+ *
+ * @brief Setup a room from a mapping file (here named "Dojo1.map")
+ *
+ * @date 8 november 2019
+ *
+ * @author LolyFox
+ *
+ */
 
+#pragma once
+
+#include <QFile>
+#include <vector>
 #include <QWidget>
 #include <QPainter>
-#include <vector>
-#include <QFile>
 #include <QTextStream>
 #include "Object.h"
 
+/*!
+ * \struct tilesObject
+ * \brief The tilesObject struct define a typical Tiles object architecture
+ */
 struct tilesObject
 {
     spriteFrame frame;
     unsigned short x, y;
 };
 
+/*!
+ * \struct Map_element
+ * \brief The Map_element struct define the structure of pather of title between two point
+ */
 struct Map_element
 {
     int origin, destination = -1;
     std::vector<int> tile;
 };
 
+/*!
+ * \enum ground
+ * \brief The ground enum order types of ground in table "frameGnd"
+ */
 enum ground
 {
     Gnd_L,
@@ -45,6 +67,10 @@ static spriteFrame frameWall[7]={
     {171,712,16,16}  // border 2
 };
 
+/*!
+ * \class room
+ * \brief The room class contain all the elements of a room, like background elements, walls, platforms, etc.
+ */
 class room: public QObject
 {
     Q_OBJECT
@@ -55,7 +81,7 @@ public:
     // variable
     QWidget* parent;
 
-    //functions
+    // functions
     void Draw(QPainter * p_painter,QPixmap p_pixmap);
     tilesObject CreateTile(unsigned short p_x,unsigned short p_y, spriteFrame p_frame){
         tilesObject t_tile = {p_frame,p_x,p_y};
@@ -66,12 +92,13 @@ public:
     std::vector<tilesObject> getBack();
 
 private:
+    // vectors
     std::vector<tilesObject> Front;
     std::vector<tilesObject> Back;
+
+    // functions
     spriteFrame loadFrame(int p_type);
     unsigned short load_x(int p_position);
     unsigned short load_y(int p_position);
 
 };
-
-#endif // ROOM_H

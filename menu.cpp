@@ -49,7 +49,7 @@ Menu::~Menu(){}
 void Menu::startGame()
 {
     Game* partie = new Game(this);
-    partie->setWindowTitle("let's play -- yaya");
+    partie->setWindowTitle("let's play -- yahaha");
     partie->setFixedSize(848,640);
     partie->show();
 

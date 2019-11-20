@@ -1,6 +1,7 @@
 QT+=widgets gui
 
 SOURCES += \
+    bullet.cpp \
     character.cpp \
     game.cpp \
     hud.cpp \
@@ -10,6 +11,7 @@ SOURCES += \
     room.cpp
 
 HEADERS += \
+    bullet.h \
     character.h \
     game.h \
     hud.h \

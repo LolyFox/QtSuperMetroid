@@ -7,6 +7,7 @@ room::room()
     QFile file(Map);
 
     char id = 0;
+    int x;
 
     if(!file.open(QIODevice::ReadOnly)) {
         qCritical("ERROR : error loading map %d", id);
@@ -19,8 +20,8 @@ room::room()
     Map_element temp;
     std::vector<Map_element> Room_Map;
 
-    int x;
 
+    // try to fill "Room_Map" with the map file
     try {
         while(!in.atEnd()){
             line = in.readLine();
@@ -30,12 +31,16 @@ room::room()
             temp.destination = -1;
 
             if(fields.size() != 0){ // ignore empty line
-                if(!fields[0].contains(QRegExp("[//]"))){ // ignore comment : begin by "// "
+                // ignore comment : begin by "// "
+                if(!fields[0].contains(QRegExp("[//]"))){
                     if(fields[0].contains(QRegExp("[-]")))
                     {
+                        // slite in function of '-' and add field[1] content
                         fields = fields[0].split("-") << fields[1];
                         temp.origin = fields[0].toInt();
                         temp.destination = fields[1].toInt();
+
+                        // check if the title is a single type or a pathern
                         if(fields[2].contains(QRegExp("[,]"))){
                             x = fields[2].count(",") +1;
                             fields << fields[2].split(",");
@@ -68,6 +73,7 @@ room::room()
     tilesObject tile;
 
     if(Room_Map.size()!=0){
+        // try to well fill "Front" vector with "Room_Map" content
         try {
             for(unsigned int i=0;  i < Room_Map.size(); i++){
                 if(Room_Map[i].destination == -1){
@@ -87,6 +93,7 @@ room::room()
                 {
                     for(int y=Room_Map[i].origin ;y <Room_Map[i].destination;y++){
                         if(Room_Map[i].tile.size()!=1){
+                            // fill l_frame with pathern in order
                             l_frame = loadFrame(Room_Map[i].tile[y % (int)Room_Map[i].tile.size()]);
                         }
                         else{

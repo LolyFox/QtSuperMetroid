@@ -2,6 +2,11 @@
 
 void Character::SetHP(unsigned char p_HP){X=p_HP;}
 
+/*!
+ * \brief Character::SetPos is use to change character position
+ * \param p_X use the 1024 to keep a value
+ * \param p_Y use the 1024 to keep a value
+ */
 void Character::SetPos(unsigned short p_X, unsigned short p_Y)
 {
     if(p_X!=1024)

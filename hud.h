@@ -1,5 +1,15 @@
-#ifndef HUD_H
-#define HUD_H
+/**
+ * @file hud.h
+ *
+ * @brief HUD elements and their behavior in functions of character and ennemies parameter
+ *
+ * @date 8 november 2019
+ *
+ * @author LolyFox
+ *
+ */
+
+#pragma once
 
 #include <QRectF>
 #include <vector>
@@ -7,6 +17,10 @@
 #include "Object.h"
 #include "player.h"
 
+/*!
+ * \enum HUD_SRC
+ * \brief The HUD_SRC enum the differents sprites position in the table of SpriteMap
+ */
 enum HUD_SRC
 {
     Blue_Bar,
@@ -21,6 +35,10 @@ enum HUD_SRC
     Red_Mun_Base=36
 };
 
+/*!
+ * \enum HUD_POSITION
+ * \brief The HUD_POSITION enum the differents sprites position in the gaming window
+ */
 enum HUD_POSITION
 {
     Bar_Pos,
@@ -69,20 +87,23 @@ static spriteFrame HUD_POSITIONS[]=
     {171, 11, 8, 7}
 };
 
-
 class HUD
 {
 
 public:
+    HUD();
+    ~HUD();
+    void Animated(QPainter* p_painter, QPixmap p_pixmap, Player* p_hero);
+
+private:
+    // variables
     QRectF t_Bar,t_HPL,t_HPR,t_EnB,t_MunL,t_MunR,t_MunMaxL,
     t_MunMaxR,s_BB,s_RB,s_Enn_Bar,s_Max_life_pixels,
     s_W_life_pixels, s_B_life_pixels,t_Player;
     std::vector<QRectF> v_Blue_HP;
     std::vector<QRectF> v_Blue_Mun;
     unsigned char Temp=0;
-    void Animated(QPainter* p_painter, QPixmap p_pixmap, Player* p_hero);
-    HUD();
-    ~HUD();
-};
 
-#endif // HUD_H
+    // function
+    QRectF create_RectF(spriteFrame *p_srites, int p_type);
+};

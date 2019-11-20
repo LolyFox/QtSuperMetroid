@@ -1,6 +1,6 @@
 #include "hud.h"
 
-QRectF create_RectF(spriteFrame *p_srites, int p_type)
+QRectF HUD::create_RectF(spriteFrame *p_srites, int p_type)
 {
     QRectF name(p_srites[p_type].shift,p_srites[p_type].level,p_srites[p_type].width,p_srites[p_type].height);
     return name;
@@ -30,7 +30,7 @@ void HUD::Animated(QPainter *p_painter, QPixmap p_pixmap, Player* p_hero)
             break;
     }
 
-//    /* Mun Display */
+    /* Mun Display */
     p_painter->drawPixmap(t_MunL, p_pixmap, v_Blue_Mun.at(p_hero->GetMun()/10));
     p_painter->drawPixmap(t_MunR, p_pixmap, v_Blue_Mun.at(p_hero->GetMun() % 10));
     p_painter->drawPixmap(t_MunMaxL, p_pixmap, v_Blue_Mun.at(9));

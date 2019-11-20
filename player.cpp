@@ -12,14 +12,17 @@ void Player::Movement(std::vector<tilesObject> p_room)
     if(ota.canJump == true){
         AnimationLevel++;
         TimeJump=0;
+
         if(AnimationLevel > (top_jump+top_jump)*4){
             AnimationLevel=0;
             ota.canJump=false;
             SetPos(CUR_POS,(unsigned short) InitPosY);
         }else{
-            TimeJump = -((AnimationLevel/4)-top_jump)*((AnimationLevel/4)-top_jump)+(top_jump*top_jump); // -(x-15)^2+15^2
+            // jumping function, as  -(x-15)^2+15^2, where 15 is the middle of x-axis
+            TimeJump = -((AnimationLevel/4)-top_jump)*((AnimationLevel/4)-top_jump)+(top_jump*top_jump); //
+            // get real position
             jump_count = InitPosY-TimeJump;
-            // max = 15^2 = 225 ; x top = 15*
+
             if(pressed.D==true){
                 colision = 0;
                 for(unsigned int i=0; i < p_room.size(); i++){
@@ -110,6 +113,7 @@ void Player::Movement(std::vector<tilesObject> p_room)
     } else if(ota.fall){
         //
         colision = 0;
+        // TODO : set explanations
         for(unsigned int i=0; i < p_room.size(); i++){
             if(GetY() >= p_room[i].y-40 && GetY() < p_room[i].y+16
                     && GetX() >= p_room[i].x-26 && GetX() < p_room[i].x+16){
@@ -399,37 +403,37 @@ void Player::Animation(QPainter * p_painter,QPixmap p_pixmap)
     }
 }
 
-void Player::Key_event(QKeyEvent * event)
+void Player::Key_event(QKeyEvent * p_event)
 {
-    if(event->key() == Qt::Key_F ){
+    if(p_event->key() == Qt::Key_F ){
         if(ota.fall== false){
             ota.fall = true;
             AnimationLevel = 0;
         }
     }
 
-    if(event->count() == 2)
+    if(p_event->count() == 2)
     {
-        if(event->key() == Qt::Key_Right )
+        if(p_event->key() == Qt::Key_Right )
         {
             pressed.right=true;
             oldirection = false;
-            if(event->key() == Qt::Key_Up){
+            if(p_event->key() == Qt::Key_Up){
                 pressed.up=true;
-            } else if(event->key() == Qt::Key_Down){
+            } else if(p_event->key() == Qt::Key_Down){
                 pressed.down=true;
             }
-        }else if(event->key() == Qt::Key_Left){
+        }else if(p_event->key() == Qt::Key_Left){
             pressed.left=true;
             oldirection = true;
-            if(event->key() == Qt::Key_Up){
+            if(p_event->key() == Qt::Key_Up){
                 pressed.up=true;
-            } else if(event->key() == Qt::Key_Down){
+            } else if(p_event->key() == Qt::Key_Down){
                 pressed.down=true;
             }
         }
     }
-    else if(event->key() == Qt::Key_D )
+    else if(p_event->key() == Qt::Key_D )
     {
         if(pressed.D == false)
         {
@@ -439,7 +443,7 @@ void Player::Key_event(QKeyEvent * event)
                 AnimationLevel=0;
         }
     }
-    else if(event->key() == Qt::Key_Q)
+    else if(p_event->key() == Qt::Key_Q)
     {
         if(pressed.Q == false)
         {
@@ -449,7 +453,7 @@ void Player::Key_event(QKeyEvent * event)
                 AnimationLevel=0;
         }
     }
-    else if(event->key() == Qt::Key_S)
+    else if(p_event->key() == Qt::Key_S)
     {
         if(pressed.S == false)
         {
@@ -459,33 +463,33 @@ void Player::Key_event(QKeyEvent * event)
 
         }
     }
-    else if(event->key() == Qt::Key_Right){
+    else if(p_event->key() == Qt::Key_Right){
         if(pressed.right == false)
         {
             pressed.right = true;
             oldirection = false;
         }
     }
-    else if(event->key() == Qt::Key_Left){
+    else if(p_event->key() == Qt::Key_Left){
         if(pressed.left == false)
         {
             pressed.left = true;
             oldirection = true;
         }
     }
-    else if(event->key() == Qt::Key_Up){
+    else if(p_event->key() == Qt::Key_Up){
         if(pressed.up == false)
         {
             pressed.up = true;
         }
     }
-    else if(event->key() == Qt::Key_Down){
+    else if(p_event->key() == Qt::Key_Down){
         if(pressed.down == false)
         {
             pressed.down = true;
         }
     }
-    else if(event->key() == Qt::Key_Shift)
+    else if(p_event->key() == Qt::Key_Shift)
     {
         if(pressed.jump == false && ota.fall == false && ota.canJump == false)
         {
@@ -495,9 +499,59 @@ void Player::Key_event(QKeyEvent * event)
             AnimationLevel=0;
         }
     }
-    else if(event->key() == Qt::Key_Space)
+    else if(p_event->key() == Qt::Key_Space)
     {
         //TODO : fire gun
+    }
+}
+
+void Player::Key_release_event(QKeyEvent * p_event)
+{
+    if(p_event->key() == Qt::Key_D && !p_event->isAutoRepeat())
+    {
+        pressed.D=false;
+        if (!ota.canJump && !ota.fall)
+            AnimationLevel=0;
+    }
+    else if(p_event->key() == Qt::Key_Q && !p_event->isAutoRepeat())
+    {
+        pressed.Q =false;
+        if (!ota.canJump && !ota.fall)
+            AnimationLevel=0;
+    }
+    else if(p_event->key() == Qt::Key_Z  && !p_event->isAutoRepeat())
+    {
+        pressed.up =false;
+        if (!ota.canJump && !ota.fall)
+            AnimationLevel=0;
+    }
+    else if(p_event->key() == Qt::Key_S && !p_event->isAutoRepeat())
+    {
+        pressed.S =false;
+        if (!ota.canJump && !ota.fall)
+            AnimationLevel=0;
+    }
+    else if(p_event->key() == Qt::Key_Down && !p_event->isAutoRepeat())
+    {
+        pressed.down =false;
+        if (!ota.canJump && !ota.fall)
+            AnimationLevel=0;
+    }
+    else if(p_event->key() == Qt::Key_Up && !p_event->isAutoRepeat())
+    {
+        pressed.up =false;
+    }
+    else if(p_event->key() == Qt::Key_Left && !p_event->isAutoRepeat())
+    {
+        pressed.left =false;
+    }
+    else if(p_event->key() == Qt::Key_Right && !p_event->isAutoRepeat())
+    {
+        pressed.right =false;
+    }
+    else if(p_event->key() == Qt::Key_Shift && !p_event->isAutoRepeat() )
+    {
+        pressed.jump =false;
     }
 }
 

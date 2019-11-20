@@ -1,8 +1,17 @@
-#ifndef CHARACTER_H
-#define CHARACTER_H
+/**
+ * @file character.h
+ *
+ * @brief All Characters properties and functionalities != ennemi || Boss
+ *
+ * @date 8 november 2019
+ *
+ * @author LolyFox
+ *
+ */
+
+#pragma once
 
 #include <QWidget>
-
 
 class Character: public QObject
 {
@@ -27,5 +36,3 @@ private:
     unsigned short Y;
 
 };
-
-#endif // CHARACTER_H

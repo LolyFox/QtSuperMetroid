@@ -1,14 +1,23 @@
-#ifndef MENU_H
-#define MENU_H
+/**
+ * @file menu.h
+ *
+ * @brief HMI to configure some game parameters
+ *
+ * @date 15 october 2019
+ *
+ * @author LolyFox
+ *
+ */
 
+#pragma once
+
+#include <QLabel>
+#include <Game.h>
 #include <QMainWindow>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QLabel>
-#include <Game.h>
 
-//#include "sound.h"
 
 class Menu : public QMainWindow
 {
@@ -48,5 +57,3 @@ private slots:
     void creditsGame();
 
 };
-
-#endif // MENU_H

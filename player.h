@@ -1,16 +1,29 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+/**
+ * @file player.h
+ *
+ * @brief All player sprites and deplacement in functions of keyevent and environment
+ *
+ * @date 26 october 2019
+ *
+ * @author LolyFox
+ *
+ */
 
-//#include <QKeyEvent>
+#pragma once
+
+#include <QTimer>
+#include <QPainter>
+#include <QKeyEvent>
+#include <character.h>
 #include "Object.h"
 #include "room.h"
-#include <character.h>
-#include <QTimer>
-#include <QKeyEvent>
-#include <QPainter>
 
 #define CUR_POS 1024
 
+/*!
+ * \struct listKeys
+ * \brief The listKeys struct define bool for each key pressed
+ */
 struct listKeys
 {
     // jump = shift
@@ -18,10 +31,18 @@ struct listKeys
     right=false,left=false,up=false,down=false;
 };
 
+/*!
+ * \struct airMov
+ * \brief The airMov struct represente state for each available action on the air
+ */
 struct airMov{
     bool maxJump=false, fall = false, canJump=false;
 };
 
+/*!
+ * \enum dirOrder
+ * \brief The dirOrder enum position for each position in tables canon direction
+ */
 enum dirOrder
 {
     Local_Dir,
@@ -245,9 +266,6 @@ static spriteFrame frame_JL[12]=
     {54,250,16,48}
 };
 
-/**
- * @brief The Player class
- */
 class Player : public Character
 {
     Q_OBJECT
@@ -260,15 +278,23 @@ public:
     }
     ~Player(){}
 
+    // functions
+    unsigned char GetMun();
+    void Movement(std::vector<tilesObject> p_room);
+    void Animation(QPainter* p_painter,QPixmap p_pixmap);
+    void Key_event(QKeyEvent * p_event);
+    void Key_release_event(QKeyEvent * p_event);
 
-    QTimer * timerJump; 
+private:
+    QTimer * timerJump;
 
-    // Parameters struct
+    // Parameters
     listKeys pressed;
     airMov ota;
 
-    // Init variable
+    // variables
     bool oldirection = false; // false = right
+    unsigned char Mun;
     double AnimationLevel=0;
     double InitPosY=0;
     double TimeJump=0;
@@ -279,18 +305,9 @@ public:
     double speed=4;
     char colision=0;
 
-    // function part
-    unsigned char GetMun();
-    void Movement(std::vector<tilesObject> p_room);
-    void Animation(QPainter* p_painter,QPixmap p_pixmap);
+    // function
     void Print(QPainter * p_painter,QPixmap p_pixmap, spriteFrame* p_Pix_coord,int p_Temp=0);
-    void Key_event(QKeyEvent * event);
-    //bool Collides(tilesObject platform);
-private:
-    unsigned char Mun;
 
 public slots :
     void loading_jump();
 };
-
-#endif // PLAYER_H
